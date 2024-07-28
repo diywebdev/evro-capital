@@ -1,4 +1,12 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const amount = ref(30000);
+const date = new Date();
+date.setMinutes(date.getMinutes() + 8);
+const hour = date.getHours();
+let min = date.getMinutes();
+min = min < 10 ? "0" + min : min;
+</script>
 
 <template>
 	<div class="bg-gray-50 py-32">
@@ -18,7 +26,8 @@
 							<div
 								class="bg-white rounded-full text-center py-2 px-4 hidden lg:inline-block"
 							>
-								Деньги у вас уже в <span class="text-lime-500">17:17</span>
+								Деньги у вас уже в
+								<span class="text-lime-500">{{ hour }}:{{ min }}</span>
 							</div>
 						</div>
 						<div class="flex items-center gap-10">
