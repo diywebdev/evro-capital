@@ -36,13 +36,9 @@ jobs:
               run: |
                   npm install -g pnpm
                   pnpm install --no-frozen-lockfile
-            - name: Build
-              run: pnpm run build
+                  pnpm build --outDir ./_site
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
-              with:
-                  # Upload dist folder
-                  path: "./dist"
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
