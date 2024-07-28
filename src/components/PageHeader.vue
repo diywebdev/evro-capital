@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const isOpen = ref(false);
+</script>
 
 <template>
 	<header class="bg-white border-b sticky top-0 left-0 w-full z-50">
@@ -13,10 +16,19 @@
 						>
 					</a>
 				</div>
-				<div class="flex-grow">
-					<nav class="site-menu">
+				<div class="">
+					<nav
+						class="flex-grow max-lg:fixed max-lg:h-screen max-lg:bg-white max-lg:top-0 max-lg:right-0 max-lg:shadow-2xl max-lg:z-50 max-lg:py-10 max-lg:min-w-[320px] max-lg:w-fit max-lg:px-4 max-lg:overflow-y-auto transition-transform duration-300 ease-in-out lg:!translate-x-0"
+						:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
+					>
+						<button
+							class="absolute w-10 h-10 top-0 right-0 lg:hidden"
+							@click="isOpen = false"
+						>
+							<i class="fa-regular fa-circle-xmark text-lg text-gray-500"></i>
+						</button>
 						<ul
-							class="hidden lg:flex justify-center gap-5 text-xs xl:text-sm font-medium"
+							class="flex justify-center flex-col lg:flex-row gap-5 text-xs xl:text-sm font-medium"
 						>
 							<li class="relative group flex items-center gap-1 cursor-pointer">
 								Как получить
@@ -157,7 +169,10 @@
 						><i class="fa-solid fa-user"></i>Войти</a
 					>
 					<a href="#" class="btn btn-primary">Регистрация</a>
-					<i class="fa-solid fa-bars text-2xl text-gray-600 cursor-pointer lg:hidden"></i>
+					<i
+						class="fa-solid fa-bars text-2xl text-gray-600 cursor-pointer lg:hidden"
+						@click="isOpen = true"
+					></i>
 				</div>
 			</div>
 		</div>
