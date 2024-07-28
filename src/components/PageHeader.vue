@@ -4,7 +4,7 @@ const isOpen = ref(false);
 </script>
 
 <template>
-	<header class="bg-white border-b sticky top-0 left-0 w-full z-50">
+	<header class="border-b absolute top-0 left-0 w-full z-50">
 		<div class="container">
 			<div class="h-[80px] flex items-center justify-between gap-4">
 				<div class="">
