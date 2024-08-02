@@ -13,7 +13,7 @@ import AuthFooter from "@/components/AuthFooter.vue";
 			<div class="">
 				<input
 					type="email"
-					class="w-full outline-none border border-red-500 rounded py-3 px-4 focus:border-lime-500 font-normal placeholder:font-normal placeholder:text-red-400"
+					class="w-full outline-none border border-red-500 rounded py-3 px-4 focus:border-red-500 font-normal placeholder:font-normal placeholder:text-red-400"
 					placeholder="Email"
 					required
 				/>
