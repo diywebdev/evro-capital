@@ -6,7 +6,7 @@ const isOpen = ref(false);
 <template>
 	<header class="border-b absolute top-0 left-0 w-full z-50">
 		<div class="container">
-			<div class="h-[80px] flex items-center justify-between gap-4">
+			<div class="h-[60px] sm:h-[80px] flex items-center justify-between gap-4">
 				<div class="">
 					<a href="/" class="flex flex-col">
 						<span class="uppercase font-black text-2xl sm:text-5xl">Евро</span>
@@ -16,7 +16,7 @@ const isOpen = ref(false);
 						>
 					</a>
 				</div>
-				<div class="">
+				<div class="hidden">
 					<nav
 						class="flex-grow max-lg:fixed max-lg:h-screen max-lg:bg-white max-lg:top-0 max-lg:right-0 max-lg:shadow-2xl max-lg:z-50 max-lg:py-10 max-lg:min-w-[320px] max-lg:w-fit max-lg:px-4 max-lg:overflow-y-auto transition-transform duration-300 ease-in-out lg:!translate-x-0"
 						:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
@@ -164,13 +164,11 @@ const isOpen = ref(false);
 						</ul>
 					</nav>
 				</div>
-				<div class="flex items-center flex-nowrap gap-4 flex-shrink-0">
-					<a href="#" class="btn btn-secondary max-sm:hidden"
-						><i class="fa-solid fa-user"></i>Войти</a
-					>
+				<div class="flex items-center flex-nowrap gap-2 sm:gap-4 flex-shrink-0">
+					<a href="#" class="btn btn-secondary"><i class="fa-solid fa-user"></i>Войти</a>
 					<a href="#" class="btn btn-primary">Регистрация</a>
 					<i
-						class="fa-solid fa-bars text-2xl text-gray-600 cursor-pointer lg:hidden"
+						class="fa-solid fa-bars text-2xl text-gray-600 cursor-pointer hidden"
 						@click="isOpen = true"
 					></i>
 				</div>

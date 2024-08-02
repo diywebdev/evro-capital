@@ -9,11 +9,11 @@ min = min < 10 ? "0" + min : min;
 </script>
 
 <template>
-	<div class="bg-gray-50 py-32">
+	<div class="max-sm:pb-5 max-md:py-32">
 		<div class="container">
-			<div class="grid md:grid-cols-2 xl:grid-cols-3">
+			<div class="grid md:grid-cols-2 xl:grid-cols-3 md:items-center">
 				<div
-					class="xl:col-span-1 relative mb-10 sm:mb-32 md:mb-0 flex flex-col justify-between"
+					class="xl:col-span-1 relative mb-10 sm:mb-32 md:mb-0 flex flex-col justify-center gap-5 sm:gap-10 md:min-h-screen"
 				>
 					<h1
 						class="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold md:pr-10 lg:pr-0 mb-10 md:mb-0"
@@ -24,7 +24,7 @@ min = min < 10 ? "0" + min : min;
 						<div class="flex items-center gap-10 mb-5">
 							<div class="xl:text-lg font-bold">Способы получения</div>
 							<div
-								class="bg-white rounded-full text-center py-2 px-4 hidden lg:inline-block"
+								class="bg-white rounded-full text-center py-2 px-4 block md:hidden lg:inline-block"
 							>
 								Деньги у вас уже в
 								<span class="text-lime-500">{{ hour }}:{{ min }}</span>
@@ -37,7 +37,9 @@ min = min < 10 ? "0" + min : min;
 						</div>
 					</div>
 				</div>
-				<div class="flex items-center justify-center relative z-[1] xl:col-span-2">
+				<div
+					class="flex items-center justify-center relative z-[1] xl:col-span-2 md:min-h-screen"
+				>
 					<img
 						src="/img/1.png"
 						class="w-full xl:w-2/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[-1]"

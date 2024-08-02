@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-	@apply flex justify-center items-center gap-2 flex-nowrap py-2 sm:py-2.5 px-3 sm:px-5 rounded uppercase text-xs sm:text-sm font-semibold transition-colors duration-300 cursor-pointer;
+	@apply flex justify-center items-center gap-2 flex-nowrap py-2 sm:py-2.5 px-2 sm:px-5 rounded uppercase text-xs sm:text-sm font-semibold transition-colors duration-300 cursor-pointer;
 	&-primary {
 		@apply bg-lime-600 text-white hover:bg-lime-500;
 	}
