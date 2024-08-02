@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-const amount = ref(30000);
+const amount = ref(100000);
 const date = new Date();
 date.setMinutes(date.getMinutes() + 8);
 const hour = date.getHours();
@@ -64,9 +64,9 @@ min = min < 10 ? "0" + min : min;
 								name=""
 								id=""
 								min="2000"
-								max="30000"
+								max="100000"
 								step="500"
-								value="30000"
+								value="100000"
 								class="w-full"
 								v-model="amount"
 							/>

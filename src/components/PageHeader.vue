@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 const isOpen = ref(false);
+import TheLogo from "./TheLogo.vue";
 </script>
 
 <template>
@@ -8,13 +9,7 @@ const isOpen = ref(false);
 		<div class="container">
 			<div class="h-[60px] sm:h-[80px] flex items-center justify-between gap-4">
 				<div class="">
-					<a href="/" class="flex flex-col">
-						<span class="uppercase font-black text-2xl sm:text-5xl">Евро</span>
-						<span
-							class="text-xs sm:text-sm tracking-widest sm:tracking-[9.5px] sm:font-semibold uppercase -mt-1 text-lime-600"
-							>Капитал</span
-						>
-					</a>
+					<TheLogo />
 				</div>
 				<div class="hidden">
 					<nav
@@ -165,8 +160,12 @@ const isOpen = ref(false);
 					</nav>
 				</div>
 				<div class="flex items-center flex-nowrap gap-2 sm:gap-4 flex-shrink-0">
-					<a href="#" class="btn btn-secondary"><i class="fa-solid fa-user"></i>Войти</a>
-					<a href="#" class="btn btn-primary">Регистрация</a>
+					<router-link :to="{ name: 'login' }" class="btn btn-secondary"
+						><i class="fa-solid fa-user"></i>Войти</router-link
+					>
+					<router-link :to="{ name: 'sign-up' }" class="btn btn-primary"
+						>Регистрация</router-link
+					>
 					<i
 						class="fa-solid fa-bars text-2xl text-gray-600 cursor-pointer hidden"
 						@click="isOpen = true"

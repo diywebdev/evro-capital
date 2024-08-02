@@ -10,6 +10,24 @@ const router = createRouter({
 				title: "Главная"
 			},
 			component: () => import("../pages/HomePage.vue")
+		},
+		{
+			path: "/login",
+			name: "login",
+			meta: {
+				title: "Авторизация",
+				layout: "auth"
+			},
+			component: () => import("../pages/auth/LoginPage.vue")
+		},
+		{
+			path: "/sign-up",
+			name: "sign-up",
+			meta: {
+				title: "Регистрация",
+				layout: "auth"
+			},
+			component: () => import("../pages/auth/SignUpPage.vue")
 		}
 	]
 });
