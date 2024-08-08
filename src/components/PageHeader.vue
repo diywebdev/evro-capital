@@ -1,7 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const isOpen = ref(false);
 import TheLogo from "./TheLogo.vue";
+const props = defineProps({
+	menu: {
+		type: Array,
+		required: false,
+		default: () => []
+	}
+});
+const items = computed(() => {
+	return props.menu.filter((item) => item?.meta?.isShowMenu);
+});
 </script>
 
 <template>
@@ -11,7 +21,7 @@ import TheLogo from "./TheLogo.vue";
 				<div class="">
 					<TheLogo />
 				</div>
-				<div class="hidden">
+				<div :class="items.length ? 'block' : 'hidden'">
 					<nav
 						class="flex-grow max-lg:fixed max-lg:h-screen max-lg:bg-white max-lg:top-0 max-lg:right-0 max-lg:shadow-2xl max-lg:z-50 max-lg:py-10 max-lg:min-w-[320px] max-lg:w-fit max-lg:px-4 max-lg:overflow-y-auto transition-transform duration-300 ease-in-out lg:!translate-x-0"
 						:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
@@ -25,7 +35,9 @@ import TheLogo from "./TheLogo.vue";
 						<ul
 							class="flex justify-center flex-col lg:flex-row gap-5 text-xs xl:text-sm font-medium"
 						>
-							<li class="relative group flex items-center gap-1 cursor-pointer">
+							<li
+								class="relative group flex items-center gap-1 cursor-pointer hidden"
+							>
 								Как получить
 								<i
 									class="fa-solid fa-chevron-down text-[10px] transition-transform origin-center duration-300 group-hover:-rotate-180"
@@ -42,7 +54,9 @@ import TheLogo from "./TheLogo.vue";
 									</li>
 								</ul>
 							</li>
-							<li class="relative group flex items-center gap-1 cursor-pointer">
+							<li
+								class="relative group flex items-center gap-1 cursor-pointer hidden"
+							>
 								Как вернуть
 								<i
 									class="fa-solid fa-chevron-down text-[10px] transition-transform origin-center duration-300 group-hover:-rotate-180"
@@ -73,7 +87,9 @@ import TheLogo from "./TheLogo.vue";
 									</li>
 								</ul>
 							</li>
-							<li class="relative group flex items-center gap-1 cursor-pointer">
+							<li
+								class="relative group flex items-center gap-1 cursor-pointer hidden"
+							>
 								О нас
 								<i
 									class="fa-solid fa-chevron-down text-[10px] transition-transform origin-center duration-300 group-hover:-rotate-180"
@@ -118,7 +134,9 @@ import TheLogo from "./TheLogo.vue";
 									</li>
 								</ul>
 							</li>
-							<li class="relative group flex items-center gap-1 cursor-pointer">
+							<li
+								class="relative group flex items-center gap-1 cursor-pointer hidden"
+							>
 								Помощь
 								<i
 									class="fa-solid fa-chevron-down text-[10px] transition-transform origin-center duration-300 group-hover:-rotate-180"
@@ -149,11 +167,12 @@ import TheLogo from "./TheLogo.vue";
 									</li>
 								</ul>
 							</li>
-							<li>
-								<a
-									href="#"
-									class="transition-colors duration-300 text-gray-800 hover:text-lime-600"
-									>Пожаловаться</a
+							<li v-for="item in items" :key="item.name">
+								<router-link
+									:to="{ name: item.name }"
+									class="flex items-center gap-2 py-1 px-2 transition-colors hover:text-lime-600 whitespace-nowrap"
+									active-class="text-lime-600"
+									>{{ item?.meta?.title || "Item" }}</router-link
 								>
 							</li>
 						</ul>

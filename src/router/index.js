@@ -28,6 +28,63 @@ const router = createRouter({
 				layout: "auth"
 			},
 			component: () => import("../pages/auth/SignUpPage.vue")
+		},
+		{
+			path: "/cabinet",
+			name: "cabinet.index",
+			meta: {
+				title: "Личный кабинет",
+				menu: true
+			},
+			component: () => import("../pages/cabinet/CabinetPage.vue"),
+			redirect: "/cabinet/loan",
+			children: [
+				{
+					path: "loan",
+					name: "cabinet.loan",
+					meta: {
+						title: "Активный заём",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/LoanPage.vue")
+				},
+				{
+					path: "cards",
+					name: "cabinet.cards",
+					meta: {
+						title: "Карты",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/LoanPage.vue")
+				},
+				{
+					path: "documents",
+					name: "cabinet.documents",
+					meta: {
+						title: "Документы",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/LoanPage.vue")
+				},
+				{
+					path: "profile",
+					name: "cabinet.profile",
+					meta: {
+						title: "Личные данные",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/LoanPage.vue")
+				},
+				{
+					path: "settings",
+					name: "cabinet.settings",
+					meta: {
+						title: "Настройки",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/LoanPage.vue")
+				}
+			]
 		}
 	]
 });

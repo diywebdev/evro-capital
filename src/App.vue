@@ -8,9 +8,13 @@ const route = useRoute();
 watch(route, () => {
 	document.title = route?.meta?.title ? `${route.meta.title} | ${SITE_NAME}` : SITE_NAME;
 });
-const layout = computed(() => (route?.meta?.layout ? `${route.meta.layout}` : "default"));
+const layout = computed(() => {
+	return route?.meta?.layout ? authLayout : defaultLayout;
+});
 </script>
 
 <template v-cloak>
-	<component :is="layout === 'auth' ? authLayout : defaultLayout"></component>
+	<component :is="layout">
+		<router-view />
+	</component>
 </template>
