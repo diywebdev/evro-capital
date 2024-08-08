@@ -183,6 +183,7 @@ const items = computed(() => {
 					<i
 						class="fa-solid fa-bars text-xl text-gray-600 cursor-pointer lg:hidden"
 						@click="isOpen = true"
+						:class="{ hidden: !menu.length }"
 					></i>
 				</div>
 			</div>
