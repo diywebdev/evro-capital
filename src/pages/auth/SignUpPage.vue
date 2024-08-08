@@ -29,7 +29,7 @@ import { SITE_NAME } from "@/consts";
 				class="w-full outline-none border rounded py-3 px-4 focus:border-lime-500 font-normal placeholder:font-normal"
 				placeholder="Пароль"
 				required
-				autocomplete="false"
+				autocomplete="off"
 			/>
 		</div>
 		<div class="">
@@ -38,7 +38,7 @@ import { SITE_NAME } from "@/consts";
 				class="w-full outline-none border rounded py-3 px-4 focus:border-lime-500 font-normal placeholder:font-normal"
 				placeholder="Повторите пароль"
 				required
-				autocomplete="false"
+				autocomplete="off"
 			/>
 		</div>
 		<label class="flex items-center gap-2 flex-nowrap select-none cursor-pointer">
