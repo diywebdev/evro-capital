@@ -13,6 +13,9 @@
 	&-secondary {
 		@apply bg-gray-300 text-gray-600 hover:bg-gray-200;
 	}
+	&-danger {
+		@apply bg-red-500 text-white hover:bg-red-400;
+	}
 	&-lg {
 		@apply py-5 px-3 sm:px-8;
 	}

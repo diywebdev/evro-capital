@@ -43,25 +43,7 @@ const router = createRouter({
 					path: "loan",
 					name: "cabinet.loan",
 					meta: {
-						title: "Активный заём",
-						isShowMenu: true
-					},
-					component: () => import("../pages/cabinet/LoanPage.vue")
-				},
-				{
-					path: "cards",
-					name: "cabinet.cards",
-					meta: {
-						title: "Карты",
-						isShowMenu: true
-					},
-					component: () => import("../pages/cabinet/LoanPage.vue")
-				},
-				{
-					path: "documents",
-					name: "cabinet.documents",
-					meta: {
-						title: "Документы",
+						title: "Активный займ",
 						isShowMenu: true
 					},
 					component: () => import("../pages/cabinet/LoanPage.vue")
@@ -73,16 +55,34 @@ const router = createRouter({
 						title: "Личные данные",
 						isShowMenu: true
 					},
-					component: () => import("../pages/cabinet/LoanPage.vue")
+					component: () => import("../pages/cabinet/ProfilePage.vue")
 				},
 				{
-					path: "settings",
-					name: "cabinet.settings",
+					path: "documents",
+					name: "cabinet.documents",
 					meta: {
-						title: "Настройки",
+						title: "Документы",
 						isShowMenu: true
 					},
-					component: () => import("../pages/cabinet/LoanPage.vue")
+					component: () => import("../pages/cabinet/DocumentsPage.vue")
+				},
+				{
+					path: "cards",
+					name: "cabinet.cards",
+					meta: {
+						title: "Карты",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/CardsPage.vue")
+				},
+				{
+					path: "process",
+					name: "cabinet.process",
+					meta: {
+						title: "Оформить",
+						isShowMenu: true
+					},
+					component: () => import("../pages/cabinet/ProcessPage.vue")
 				}
 			]
 		}

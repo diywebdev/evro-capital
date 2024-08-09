@@ -1,10 +1,20 @@
 <script setup>
+import { ref } from "vue";
+import { useAuthStore } from "@/stores/auth";
+import { useRouter } from "vue-router";
 import AuthHeader from "@/components/AuthHeader.vue";
 import AuthFooter from "@/components/AuthFooter.vue";
-import { useRouter } from "vue-router";
 const router = useRouter();
+const store = useAuthStore();
+const email = ref(null);
+const password = ref(null);
+
 const onSubmit = async () => {
-	router.push({ name: "cabinet.index" });
+	setTimeout(() => {
+		store.user.id = "123";
+		store.user.email = email.value;
+		router.push({ name: "cabinet.index" });
+	}, 1000);
 };
 </script>
 
@@ -18,9 +28,11 @@ const onSubmit = async () => {
 			<div class="">
 				<input
 					type="email"
+					name="email"
 					class="w-full outline-none border border-red-500 rounded py-3 px-4 focus:border-red-500 font-normal placeholder:font-normal placeholder:text-red-400"
 					placeholder="Email"
 					required
+					v-model="email"
 				/>
 				<div class="text-xs text-red-500 mt-1">Поле обязательно для заполнения</div>
 			</div>
@@ -31,10 +43,16 @@ const onSubmit = async () => {
 					placeholder="Пароль"
 					required
 					autocomplete="off"
+					v-model="password"
 				/>
 			</div>
 			<div class="">
-				<button class="btn btn-primary btn-lg w-full">Войти</button>
+				<button
+					class="btn btn-primary btn-lg w-full disabled:bg-gray-400 disabled:cursor-not-allowed"
+					:disabled="!email && !password"
+				>
+					Войти
+				</button>
 			</div>
 		</form>
 		<div class="text-right">

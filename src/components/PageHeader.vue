@@ -1,5 +1,9 @@
 <script setup>
 import { ref, computed } from "vue";
+import { useAuthStore } from "@/stores/auth";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const store = useAuthStore();
 const isOpen = ref(false);
 import TheLogo from "./TheLogo.vue";
 const props = defineProps({
@@ -12,6 +16,11 @@ const props = defineProps({
 const items = computed(() => {
 	return props.menu.filter((item) => item?.meta?.isShowMenu);
 });
+const shortName = computed(() =>
+	store.user.firstName && store.user.middleName
+		? store.user.middleName + " " + store.user.firstName[0] + "."
+		: store.user.email
+);
 </script>
 
 <template>
@@ -173,7 +182,10 @@ const items = computed(() => {
 						</li>
 					</ul>
 				</nav>
-				<div class="flex items-center flex-nowrap gap-2 sm:gap-4 flex-shrink-0 justify-end">
+				<div
+					class="flex items-center flex-nowrap gap-2 sm:gap-4 flex-shrink-0 justify-end"
+					v-if="!store.user.id"
+				>
 					<router-link :to="{ name: 'login' }" class="btn btn-secondary"
 						><i class="fa-solid fa-user max-[340px]:hidden"></i>Войти</router-link
 					>
@@ -185,6 +197,18 @@ const items = computed(() => {
 						@click="isOpen = true"
 						:class="{ hidden: !menu.length }"
 					></i>
+				</div>
+				<div class="flex items-center gap-3" v-else>
+					<span>{{ shortName }}</span>
+					<button
+						class="btn btn btn-danger"
+						@click="
+							store.user = {};
+							router.push({ name: 'login' });
+						"
+					>
+						Выйти
+					</button>
 				</div>
 			</div>
 		</div>
